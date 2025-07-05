@@ -62,4 +62,5 @@ test("the data is peanut butter ", async () => {
 test("mock implementation of simple function", () => {
   const mock = jest.fn((x) => 42 + x);
   expect(mock(2)).toBe(44);
+  expect(mock).toHaveBeenCalledWith(2);
 });
