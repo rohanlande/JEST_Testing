@@ -49,7 +49,14 @@ test('data is peanut butter', done=>{
 test('the data is peanut butter in promise',()=>{
   return expect(fetchdatapromise()).resolves.toBe('peanut butter');
 })
+// Uncomment the following test to see it fail
+// This test will fail because the promise will resolve with 'peanut butter'
+// test('the fetchdatapromise fails with as error',()=>{
+//   return expect(fetchdatapromise()).rejects.toThrow();
+// })
 
-test('the fetchdatapromise fails with as error',()=>{
-  return expect(fetchdatapromise()).rejects.toThrow();
-})
+// Async/Await test
+test ('the data is peanut butter ', async () => {
+  const data = await fetchdatapromise();
+  expect(data).toBe('peanut butter');
+});
