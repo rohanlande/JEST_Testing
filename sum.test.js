@@ -64,3 +64,16 @@ test("mock implementation of simple function", () => {
   expect(mock(2)).toBe(44);
   expect(mock).toHaveBeenCalledWith(2);
 });
+ 
+//spying on a function
+test('spying on a method of an object',()=>{
+  const video = {
+    play(){
+      return true;
+    }
+  };
+  const spy =jest.spyOn(video,'play');
+  video.play();
+  expect(spy).toHaveBeenCalled();
+  spy.mockRestore(); // Restore the original method
+})
